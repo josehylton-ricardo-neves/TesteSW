@@ -129,7 +129,6 @@ public class FuncionalidadesIFTest {
         assertEquals(target.calculadora("123 + caixa"), "Insira uma expressão válida");
         assertEquals(target.calculadora("caixa+123"), "Insira uma expressão válida");
         assertEquals(target.calculadora("1 mais 2"), "expressão invalida, insira uma expressão correta"); //?
-//        assertEquals(target.calculadora("1 + 0"),"Não pode ser dividido por zero"); ???
         // Estouro matemático
         assertThrows(AssertionFailedError.class, () -> {
             assertEquals(target.calculadora("1000000000000000000000000 + 1"), "1000000000000000000000001.00");
@@ -140,6 +139,7 @@ public class FuncionalidadesIFTest {
     @Test()
     public void calculadora() {
         assertEquals(target.calculadora("1 + 1"), "2.00");
+        assertEquals(target.calculadora("1 / 0"),"∞");
         assertEquals(target.calculadora("1 + 0"), "1.00");
         assertEquals(target.calculadora("1 * 0"), "0.00");
         assertEquals(target.calculadora("1 + -20"), "-19.00");
